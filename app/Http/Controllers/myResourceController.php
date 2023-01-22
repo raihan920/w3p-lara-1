@@ -13,7 +13,7 @@ class myResourceController extends Controller
      */
     public function index()
     {
-        //
+        echo "This is index page";
     }
 
     /**
@@ -23,7 +23,7 @@ class myResourceController extends Controller
      */
     public function create()
     {
-        //
+        echo "This is create page";
     }
 
     /**
@@ -34,7 +34,7 @@ class myResourceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo "This is store page";
     }
 
     /**
@@ -45,7 +45,7 @@ class myResourceController extends Controller
      */
     public function show($id)
     {
-        //
+        echo "This is show page for id: {$id}";
     }
 
     /**
@@ -56,7 +56,7 @@ class myResourceController extends Controller
      */
     public function edit($id)
     {
-        //
+        echo "This is edit page for id: {$id}";
     }
 
     /**
@@ -66,9 +66,9 @@ class myResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        echo "This is update page for id: {$id}";
     }
 
     /**
@@ -79,7 +79,7 @@ class myResourceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        echo "This is the delete or destroy page for id: {$id}";
     }
 
     public function myHome()

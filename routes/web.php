@@ -58,3 +58,32 @@ Route::get('/terms',function(){
 
 //using invocable controller- myInvocableController
 // Route::get('/{pages}', myInvocableController::class)->name('pg')->where('pg','about|contact|home|terms'); //these are different pages to navigate
+
+//Route group
+// Route::group([],function(){
+//     Route::get('/insert',function(){
+//         echo "This is to insert new record";
+//     });
+//     Route::get('/view-all',function(){
+//         echo "This is a list of info";
+//     });
+//     Route::get('/view-individual/{id}',function($id){
+//         echo "This is detailed info of {$id}";
+//     });
+//     Route::get('/update/{id}',function($id){
+//         echo "This is to update info of {$id}";
+//     });
+//     Route::get('/delete/{id}',function($id){
+//         echo "This is to delete info of {$id}";
+//     });
+// });
+
+//Route group using controller
+Route::group(['prefix'=>'user'],function(){     //adding prefix
+    Route::get('/insert', [myResourceController::class, 'create']);
+    Route::get('/view-all', [myResourceController::class, 'index']);
+    Route::get('/show/{id}', [myResourceController::class, 'show']);
+    Route::get('/edit/{id}', [myResourceController::class, 'edit']);
+    Route::get('/update/{id}', [myResourceController::class, 'update']);
+    Route::get('/delete/{id}', [myResourceController::class, 'destroy']);
+});
