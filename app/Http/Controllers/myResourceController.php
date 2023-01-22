@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class myResourceController extends Controller
 {
@@ -13,7 +14,15 @@ class myResourceController extends Controller
      */
     public function index()
     {
-        echo "This is index page";
+        $sql = DB::select("SELECT * FROM `employees`");
+        foreach($sql as $val){
+            echo '<pre>';
+            echo "Employee ID: ".$val->employee_id."\n";
+            echo "Name: ".$val->first_name." ".$val->last_name."\n";
+            echo "Email: ".$val->first_name." ".$val->last_name."\n";
+            echo "Phone Number: ".$val->phone_number."\n";
+            echo '</pre>';
+        }
     }
 
     /**

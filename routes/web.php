@@ -79,7 +79,17 @@ Route::get('/terms',function(){
 // });
 
 //Route group using controller
-Route::group(['prefix'=>'user'],function(){     //adding prefix
+// Route::group(['prefix'=>'user'],function(){     //adding prefix
+//     Route::get('/insert', [myResourceController::class, 'create']);
+//     Route::get('/view-all', [myResourceController::class, 'index']);
+//     Route::get('/show/{id}', [myResourceController::class, 'show']);
+//     Route::get('/edit/{id}', [myResourceController::class, 'edit']);
+//     Route::get('/update/{id}', [myResourceController::class, 'update']);
+//     Route::get('/delete/{id}', [myResourceController::class, 'destroy']);
+// });
+
+//database interactations
+Route::group(['prefix'=>'employee'],function(){     //adding prefix
     Route::get('/insert', [myResourceController::class, 'create']);
     Route::get('/view-all', [myResourceController::class, 'index']);
     Route::get('/show/{id}', [myResourceController::class, 'show']);
