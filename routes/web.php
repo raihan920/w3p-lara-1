@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\employeesController;
 use App\Http\Controllers\myInvocableController;
 use App\Http\Controllers\myResourceController;
+use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,10 +91,27 @@ Route::get('/terms',function(){
 // });
 
 //database interactations
+// Route::group(['prefix'=>'employee'],function(){     //adding prefix
+//     Route::get('/insert', [myResourceController::class, 'create']);
+//     Route::get('/view-all', [myResourceController::class, 'index']);
+//     Route::get('/show/{id}', [myResourceController::class, 'show']);
+//     Route::get('/edit/{id}', [myResourceController::class, 'edit']);
+//     Route::get('/update/{id}', [myResourceController::class, 'update']);
+//     Route::get('/delete/{id}', [myResourceController::class, 'destroy']);
+// });
+
+//Route Model Binding
 Route::group(['prefix'=>'employee'],function(){     //adding prefix
     Route::get('/insert', [myResourceController::class, 'create']);
     Route::get('/view-all', [myResourceController::class, 'index']);
-    Route::get('/show/{id}', [myResourceController::class, 'show']);
+
+    //finding an id of type employee for binding
+    Route::get('/show/{employee_id}', function(Employee $employee){
+        dd($employee);
+        print_r($employee->employee_id);
+        // return view('pages.employee-profile',['employee'=>$employee]);
+    });
+
     Route::get('/edit/{id}', [myResourceController::class, 'edit']);
     Route::get('/update/{id}', [myResourceController::class, 'update']);
     Route::get('/delete/{id}', [myResourceController::class, 'destroy']);
