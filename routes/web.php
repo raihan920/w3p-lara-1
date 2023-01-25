@@ -114,5 +114,8 @@ Route::group(['prefix'=>'employee'],function(){     //adding prefix
     Route::get('/show/{employee}', [employeesController::class, 'show'])->name('show-employee');
 });
 
+//getting data using model other way
+Route::get('/show-employee', [employeesController::class, 'show_employee']);
+
 //practicing built in Request method
 Route::get('/employee', [employeesController::class, 'getUrlData']);    //setting data using url

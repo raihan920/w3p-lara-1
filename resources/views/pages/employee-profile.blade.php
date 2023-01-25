@@ -1,5 +1,5 @@
 <h1>Employee Profile</h1>
-//using blade templating
+{{-- using blade templating --}}
 {{ "Employee ID: ".$employee->employee_id."\n"; }}
 
 <?php
