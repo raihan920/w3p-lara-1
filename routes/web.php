@@ -4,6 +4,7 @@ use App\Http\Controllers\employeesController;
 use App\Http\Controllers\myInvocableController;
 use App\Http\Controllers\myResourceController;
 use App\Models\Employee;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -101,18 +102,14 @@ Route::get('/terms',function(){
 // });
 
 //Route Model Binding
+Route::get('user/{user}', function(User $user){
+    return $user->name."<br>".$user->email;
+});
+
 Route::group(['prefix'=>'employee'],function(){     //adding prefix
-    Route::get('/insert', [myResourceController::class, 'create']);
-    Route::get('/view-all', [myResourceController::class, 'index']);
-
-    //finding an id of type employee for binding
-    Route::get('/show/{employee_id}', function(Employee $employee){
-        dd($employee);
-        print_r($employee->employee_id);
-        // return view('pages.employee-profile',['employee'=>$employee]);
-    });
-
-    Route::get('/edit/{id}', [myResourceController::class, 'edit']);
-    Route::get('/update/{id}', [myResourceController::class, 'update']);
-    Route::get('/delete/{id}', [myResourceController::class, 'destroy']);
+    // Route::get('/show/{employee}', function(Employee $employee){    //here the veriable name in 'get' method and 'function parameter' should be same.
+    //     return $employee->first_name." ".$employee->last_name;
+    // });
+    //by using controller
+    Route::get('/show/{employee}', [employeesController::class, 'show'])->name('show-employee');
 });

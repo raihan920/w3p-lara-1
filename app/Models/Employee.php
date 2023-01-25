@@ -9,7 +9,8 @@ class Employee extends Model
 {
     use HasFactory;
 
-    public function getRouteKeyName(){
+    //use this method to override `id` as primary `employee_id`
+    public function getRouteKeyName(){  //it is a predefined method
         return 'employee_id';
     }
 }

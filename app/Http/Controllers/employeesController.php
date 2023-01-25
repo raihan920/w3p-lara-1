@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Employee;    //need to include this for binding
+use App\Models\Employee;    //need to include this globally for binding
 
 class employeesController extends Controller
 {
@@ -45,8 +45,10 @@ class employeesController extends Controller
      */
     public function show(Employee $employee)
     {
-        echo $employee->employee_id;
-        echo $employee->employee_name;
+        //just echoing data
+    //    echo $employee->employee_id."<br>".$employee->first_name." ".$employee->last_name."<br>".$employee->email;
+        //sending data to a view
+        return view('pages.employee-profile', ['employee'=>$employee]);
     }
 
     /**
