@@ -84,4 +84,10 @@ class employeesController extends Controller
     {
         //
     }
+
+    //user defined function
+    public function getUrlData(Request $request)
+    {
+        return "Hello {$request->name} are you {$request->age} years old?";
+    }
 }

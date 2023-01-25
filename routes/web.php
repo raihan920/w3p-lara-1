@@ -113,3 +113,6 @@ Route::group(['prefix'=>'employee'],function(){     //adding prefix
     //by using controller
     Route::get('/show/{employee}', [employeesController::class, 'show'])->name('show-employee');
 });
+
+//practicing built in Request method
+Route::get('/employee', [employeesController::class, 'getUrlData']);    //setting data using url
