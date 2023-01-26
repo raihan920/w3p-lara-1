@@ -115,7 +115,9 @@ Route::group(['prefix'=>'employee'],function(){     //adding prefix
 });
 
 //getting data using model other way
-Route::get('/show-employee', [employeesController::class, 'show_employee']);
+//employee_id should be passed as variable in the controllers method
+Route::get('/show-employee/{employee_id}', [employeesController::class, 'show_employee']);
 
 //practicing built in Request method
-Route::get('/employee', [employeesController::class, 'getUrlData']);    //setting data using url
+//setting data using url-> .../emp?name=Raihan Chowdhury&age=30
+Route::get('/emp', [employeesController::class, 'getUrlData']);

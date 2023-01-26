@@ -51,7 +51,7 @@ class employeesController extends Controller
         return view('pages.employee-profile', ['employee'=>$employee]);
     }
 
-    public function show_employee($employee_id=null)
+    public function show_employee($employee_id)
     {
         // return 'Hello World '.$employee_id;
         dd(Employee::findOrFail($employee_id));
