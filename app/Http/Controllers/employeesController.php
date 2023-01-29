@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Employee;    //need to include this globally for binding
+use Illuminate\Support\Facades\View;
 
 class employeesController extends Controller
 {
@@ -95,5 +96,21 @@ class employeesController extends Controller
     public function getUrlData(Request $request)
     {
         return "Hello {$request->name} are you {$request->age} years old?";
+    }
+
+    public function viewName()
+    {
+        $student = [
+            'name'=>'Raihan',
+            'age'=>31,
+            'email'=>'raihan92@rocketmail.com'
+        ];
+        //if 'pages.view-using-facade-two' not found got to 'welcome'
+        return View::first(['pages.view-using-facade-three','welcome'], $student);
+    }
+
+    public function viewNameFacadeFour()
+    {
+        return View::make('pages.view-using-facade-four');
     }
 }

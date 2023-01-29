@@ -121,3 +121,26 @@ Route::get('/show-employee/{employee_id}', [employeesController::class, 'show_em
 //practicing built in Request method
 //setting data using url-> .../emp?name=Raihan Chowdhury&age=30
 Route::get('/emp', [employeesController::class, 'getUrlData']);
+/*---------------------------------------------------------------*/
+//using view facade
+use Illuminate\Support\Facades\View;
+
+Route::get('/view-using-facade', function(){
+    return View::make('pages.view-using-facade', ['name'=>'Raihan']);
+});
+
+Route::get('/view-using-facade-two', function(){
+    $student = [
+        'name'=>'Raihan',
+        'age'=>31,
+        'email'=>'raihan92@rocketmail.com'
+    ];
+    // return View::first(['pages.view-using-facade-two','welcome'])->with($student);
+    return View::first(['pages.view-using-facade-two','welcome'], $student);
+})->name('view-using-facade-two');
+
+// using this using controller
+Route::get('/view-using-facade-three', [employeesController::class, 'viewName']);
+Route::get('/view-using-facade-four', [employeesController::class, 'viewNameFacadeFour'])->name('view-using-facade-four');
+
+/*---------------------------------------------------------------*/
