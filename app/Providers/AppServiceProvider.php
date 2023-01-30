@@ -28,9 +28,10 @@ class AppServiceProvider extends ServiceProvider
         View::share('siteTitle','My Super Title');
 
         //will get the data form mentioned files only
-        View::composer(['welcome','view-using-facade-four'], function($data){
+        //these are specific view files not view names
+        View::composer(['welcome','pages.view-using-facade-four'], function($view){
             $motto = "Our super duper motto";
-            $data->with('data', $motto);
+            $view->with('data', $motto);
         });
     }
 }
