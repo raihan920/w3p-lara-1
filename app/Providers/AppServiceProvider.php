@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\View\Composers\MyCustomComposer;
+use App\Http\View\Creators\MyCustomCreator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -37,5 +38,8 @@ class AppServiceProvider extends ServiceProvider
 
         //registering custom service provider
         View::composer(['pages.view-using-facade-five'], MyCustomComposer::class);
+
+        //registering custom View::creator
+        View::creator(['pages.view-using-facade-six'], MyCustomCreator::class);
     }
 }
