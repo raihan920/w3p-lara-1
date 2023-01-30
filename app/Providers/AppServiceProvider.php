@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\View\Composers\MyCustomComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,5 +34,8 @@ class AppServiceProvider extends ServiceProvider
             $motto = "Our super duper motto";
             $view->with('data', $motto);
         });
+
+        //registering custom service provider
+        View::composer(['pages.view-using-facade-five'], MyCustomComposer::class);
     }
 }

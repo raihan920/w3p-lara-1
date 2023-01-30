@@ -142,5 +142,7 @@ Route::get('/view-using-facade-two', function(){
 // using this using controller
 Route::get('/view-using-facade-three', [employeesController::class, 'viewName']);
 Route::get('/view-using-facade-four', [employeesController::class, 'viewNameFacadeFour'])->name('view-using-facade-four');
+//using custom serviceProvider
+Route::get('/view-using-facade-five', [employeesController::class, 'viewNameFacadeFive']);
 
 /*---------------------------------------------------------------*/

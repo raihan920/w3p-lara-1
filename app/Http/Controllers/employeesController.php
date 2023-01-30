@@ -113,4 +113,9 @@ class employeesController extends Controller
     {
         return View::make('pages.view-using-facade-four');
     }
+
+    public function viewNameFacadeFive()
+    {
+        return View::make('pages.view-using-facade-five');
+    }
 }
